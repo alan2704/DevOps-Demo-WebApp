@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: launching ec2
+    ec2:
+      instance_type: t2.micro
+      key_name: AWS-Devops
+      image: "ami-03657b56516ab7912"
+      region: 'us-east-2'
+      group: default
+      count: 1
+      vpc_subnet_id: subnet-cd0410b7
+      wait: yes
+      assign_public_ip: yes
